@@ -1,3 +1,49 @@
+@-webkit-keyframes loading-screen {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+@keyframes loading-screen {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+@-webkit-keyframes loading-jump {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(0.5rem);
+  }
+  75% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes loading-jump {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(0.5rem);
+  }
+  75% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @-webkit-keyframes appear {
   0% {
     transform: scale(0);
@@ -32,8 +78,74 @@ p {
   margin: 10px;
 }
 
+.loader {
+  font-family: "Shrikhand", cursive;
+  font-size: 5rem;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  -webkit-animation: loading-screen 0.1s;
+          animation: loading-screen 0.1s;
+  -webkit-animation-delay: 2500ms;
+          animation-delay: 2500ms;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+.loader .loading-item--1, .loader .loading-item--2 {
+  color: #9356DC;
+}
+.loader .loading-item--3, .loader .loading-item--4 {
+  color: #FF79DA;
+}
+.loader .loading-item--5, .loader .loading-item--6, .loader .loading-item--7, .loader .loading-item--8 {
+  color: #99E2D0;
+}
+.loader .loading-item {
+  -webkit-animation: loading-jump;
+          animation: loading-jump;
+  -webkit-animation-duration: 900ms;
+          animation-duration: 900ms;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  transform: translateY(0);
+}
+.loader .loading-item--1 {
+  -webkit-animation-delay: 0.05s;
+          animation-delay: 0.05s;
+}
+.loader .loading-item--2 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+.loader .loading-item--3 {
+  -webkit-animation-delay: 0.15s;
+          animation-delay: 0.15s;
+}
+.loader .loading-item--4 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.loader .loading-item--5 {
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s;
+}
+.loader .loading-item--6 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.loader .loading-item--7 {
+  -webkit-animation-delay: 0.35s;
+          animation-delay: 0.35s;
+}
+
 header {
-  position: relative;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 10px;
@@ -49,19 +161,28 @@ header img {
 }
 
 button {
+  border: none;
+  cursor: pointer;
+}
+button.submit {
   background: linear-gradient(354deg, #9356DC 0%, #FF79DA 100%);
   color: #FFFFFF;
   font-family: inherit;
-  border: none;
+  font-size: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   border-radius: 30px;
-  cursor: pointer;
 }
-button:hover {
-  transform: scale(1.05);
+button.submit:hover {
   filter: brightness(1.1);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
   transition: all 400ms;
+}
+button.like {
+  background: inherit;
+  height: 2rem;
+}
+button.like i {
+  height: 100%;
 }
 
 h2 {
@@ -141,9 +262,8 @@ footer li a p:hover {
   font-weight: 200;
 }
 .find-restaurant button {
-  font-weight: bold;
   margin: 40px auto;
-  padding: 15px 30px;
+  padding: 15px 20px;
 }
 
 .steps-section {
@@ -343,6 +463,9 @@ footer li a p:hover {
 }
 .restaurant-menu .container p {
   margin: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .restaurant-menu .container .price {
   display: flex;
@@ -364,4 +487,62 @@ footer li a p:hover {
 }
 .restaurant-menu .button button {
   padding: 15px 40px;
+}
+
+@media only screen and (min-width: 750px) {
+  h1, footer {
+    text-align: center;
+  }
+
+  .restaurants .container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .restaurants .container .card {
+    width: calc(50% - 20px);
+  }
+
+  footer ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+  }
+}
+@media only screen and (min-width: 900px) {
+  ol.steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  ol.steps li {
+    padding: 20px 10px 20px 20px;
+    width: calc(33% - 20px);
+  }
+  ol.steps li a {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .menu-text {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .menu-container {
+    display: flex;
+    gap: 20px;
+  }
+
+  .menu-text {
+    display: block;
+  }
+
+  footer ul {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }/*# sourceMappingURL=styles.css.map */
