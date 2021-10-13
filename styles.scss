@@ -4,6 +4,16 @@ $secondary: #FF79DA;
 $tertiary: #99E2D0;
 $button-color: linear-gradient(354deg, $primary 0%, $secondary 100%);
 
+// Keyframes
+@keyframes appear {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 // Propriétés générales
 * {
     box-sizing: border-box;
@@ -273,19 +283,45 @@ footer {
             margin-bottom: 50px;
         }
         & .menu-card {
+            display: flex;
+            justify-content: space-between;
             padding: 10px;
             background-color: #FFFFFF;
             cursor: pointer;
+            overflow: hidden;
+            animation: appear;
+            animation-duration: 600ms;
+            animation-timing-function: cubic-bezier(0.5, 1.5, 0.66, 0.8);
+            animation-fill-mode: both;
+            transform: scale(0);
+        }
+        @for $i from 0 to 10 {
+            .delay-#{$i} {
+              animation-delay:  #{$i/20}s;
+            }
+          }
+        & .menu-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex: 1;
         }
         & p {
             margin: 2px;
         }
-        & .txt-sm {
-            display: flex;
-            justify-content: space-between;
-        }
         & .price {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
             font-weight: bold;
+        }
+        & .check-icon {
+            float: right;
+            width: 4rem;
+            margin: -10px;
+            background-color: $tertiary;
+            color: #FFFFFF;
+            transform: translateX(100%);
         }
     }
     & .button {

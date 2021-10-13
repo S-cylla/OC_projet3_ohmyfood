@@ -1,3 +1,19 @@
+@-webkit-keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -263,19 +279,84 @@ footer li a p:hover {
   margin-bottom: 50px;
 }
 .restaurant-menu .container .menu-card {
+  display: flex;
+  justify-content: space-between;
   padding: 10px;
   background-color: #FFFFFF;
   cursor: pointer;
+  overflow: hidden;
+  -webkit-animation: appear;
+          animation: appear;
+  -webkit-animation-duration: 600ms;
+          animation-duration: 600ms;
+  -webkit-animation-timing-function: cubic-bezier(0.5, 1.5, 0.66, 0.8);
+          animation-timing-function: cubic-bezier(0.5, 1.5, 0.66, 0.8);
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  transform: scale(0);
+}
+.restaurant-menu .container .delay-0 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.restaurant-menu .container .delay-1 {
+  -webkit-animation-delay: 0.05s;
+          animation-delay: 0.05s;
+}
+.restaurant-menu .container .delay-2 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+.restaurant-menu .container .delay-3 {
+  -webkit-animation-delay: 0.15s;
+          animation-delay: 0.15s;
+}
+.restaurant-menu .container .delay-4 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.restaurant-menu .container .delay-5 {
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s;
+}
+.restaurant-menu .container .delay-6 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.restaurant-menu .container .delay-7 {
+  -webkit-animation-delay: 0.35s;
+          animation-delay: 0.35s;
+}
+.restaurant-menu .container .delay-8 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.restaurant-menu .container .delay-9 {
+  -webkit-animation-delay: 0.45s;
+          animation-delay: 0.45s;
+}
+.restaurant-menu .container .menu-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
 }
 .restaurant-menu .container p {
   margin: 2px;
 }
-.restaurant-menu .container .txt-sm {
-  display: flex;
-  justify-content: space-between;
-}
 .restaurant-menu .container .price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
   font-weight: bold;
+}
+.restaurant-menu .container .check-icon {
+  float: right;
+  width: 4rem;
+  margin: -10px;
+  background-color: #99E2D0;
+  color: #FFFFFF;
+  transform: translateX(100%);
 }
 .restaurant-menu .button {
   text-align: center;
