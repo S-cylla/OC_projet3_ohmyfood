@@ -183,9 +183,29 @@ button.submit:hover {
 button.like {
   background: inherit;
   height: 2rem;
+  width: 2rem;
+  position: relative;
 }
-button.like i {
-  height: 100%;
+button.like .far {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity 500ms;
+}
+button.like .fas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 500ms;
+  color: #99E2D0;
+}
+button.like:hover .far {
+  opacity: 0;
+}
+button.like:hover .fas {
+  opacity: 1;
 }
 
 h2 {

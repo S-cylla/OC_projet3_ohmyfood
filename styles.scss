@@ -131,8 +131,30 @@ button {
     &.like {
         background: inherit;
         height: 2rem;
-        & i {
-            height: 100%;
+        width: 2rem;
+        position: relative;
+        & .far {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            transition: opacity 500ms;
+        }
+        & .fas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 500ms;
+            color: $tertiary;
+        }
+        &:hover {
+            & .far {
+                opacity: 0;
+            }
+            & .fas {
+                opacity: 1;
+            }
         }
     }
 }
