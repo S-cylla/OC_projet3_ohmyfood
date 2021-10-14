@@ -21,7 +21,7 @@
     transform: translateY(0);
   }
   25% {
-    transform: translateY(0.5rem);
+    transform: translateY(0.1rem);
   }
   75% {
     transform: translateY(-1rem);
@@ -35,7 +35,7 @@
     transform: translateY(0);
   }
   25% {
-    transform: translateY(0.5rem);
+    transform: translateY(0.1rem);
   }
   75% {
     transform: translateY(-1rem);
@@ -110,6 +110,8 @@ p {
           animation: loading-jump;
   -webkit-animation-duration: 900ms;
           animation-duration: 900ms;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-iteration-count: infinite;
@@ -117,32 +119,32 @@ p {
   transform: translateY(0);
 }
 .loader .loading-item--1 {
-  -webkit-animation-delay: 0.05s;
-          animation-delay: 0.05s;
-}
-.loader .loading-item--2 {
   -webkit-animation-delay: 0.1s;
           animation-delay: 0.1s;
 }
-.loader .loading-item--3 {
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
-}
-.loader .loading-item--4 {
+.loader .loading-item--2 {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
-.loader .loading-item--5 {
-  -webkit-animation-delay: 0.25s;
-          animation-delay: 0.25s;
-}
-.loader .loading-item--6 {
+.loader .loading-item--3 {
   -webkit-animation-delay: 0.3s;
           animation-delay: 0.3s;
 }
+.loader .loading-item--4 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.loader .loading-item--5 {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+.loader .loading-item--6 {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
 .loader .loading-item--7 {
-  -webkit-animation-delay: 0.35s;
-          animation-delay: 0.35s;
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
 }
 
 header {
@@ -151,9 +153,8 @@ header {
   padding-bottom: 10px;
 }
 header .header-arrow {
-  position: absolute;
-  left: 2em;
-  top: 40%;
+  float: left;
+  margin-left: 20px;
 }
 header img {
   width: 50%;
@@ -171,11 +172,13 @@ button.submit {
   font-size: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   border-radius: 30px;
+  transition: all 400ms;
+  transform: scale(1);
 }
 button.submit:hover {
   filter: brightness(1.1);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
-  transition: all 400ms;
+  transform: scale(1.1);
 }
 button.like {
   background: inherit;
@@ -259,7 +262,7 @@ footer li a p:hover {
   text-align: center;
 }
 .find-restaurant p {
-  font-weight: 200;
+  font-weight: 300;
 }
 .find-restaurant button {
   margin: 40px auto;
@@ -400,7 +403,6 @@ footer li a p:hover {
 }
 .restaurant-menu .container .menu-card {
   display: flex;
-  justify-content: space-between;
   padding: 10px;
   background-color: #FFFFFF;
   cursor: pointer;
@@ -414,6 +416,28 @@ footer li a p:hover {
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   transform: scale(0);
+}
+.restaurant-menu .container .menu-card .check-icon {
+  margin: -10px;
+  width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #99E2D0;
+  color: #FFFFFF;
+  transition-duration: 500ms;
+}
+.restaurant-menu .container .menu-card .check-icon i {
+  transform: rotate(-360deg);
+  transition-duration: 300ms;
+  transition-delay: 100ms;
+  font-size: 1.5rem;
+}
+.restaurant-menu .container .menu-card:hover .check-icon {
+  width: 4rem;
+}
+.restaurant-menu .container .menu-card:hover .check-icon i {
+  transform: rotate(0);
 }
 .restaurant-menu .container .delay-0 {
   -webkit-animation-delay: 0s;
@@ -459,7 +483,7 @@ footer li a p:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  flex: 1;
+  flex: 5;
 }
 .restaurant-menu .container p {
   margin: 2px;
@@ -469,17 +493,10 @@ footer li a p:hover {
 }
 .restaurant-menu .container .price {
   display: flex;
-  justify-content: flex-end;
   align-items: flex-end;
   font-weight: bold;
-}
-.restaurant-menu .container .check-icon {
-  float: right;
-  width: 4rem;
-  margin: -10px;
-  background-color: #99E2D0;
-  color: #FFFFFF;
-  transform: translateX(100%);
+  transition-duration: 400ms;
+  flex: 1;
 }
 .restaurant-menu .button {
   text-align: center;
@@ -522,7 +539,8 @@ footer li a p:hover {
   }
   ol.steps li a {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10px;
   }
 
   .menu-text {
@@ -544,5 +562,14 @@ footer li a p:hover {
   footer ul {
     flex-direction: row;
     justify-content: space-around;
+    text-align: center;
+  }
+  footer ul li {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+  }
+  footer ul li a {
+    text-align: center;
   }
 }/*# sourceMappingURL=styles.css.map */

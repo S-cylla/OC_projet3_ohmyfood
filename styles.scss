@@ -20,7 +20,7 @@ $button-color: linear-gradient(354deg, $primary 0%, $secondary 100%);
         transform: translateY(0);
     }
     25% {
-        transform: translateY(0.5rem);
+        transform: translateY(0.1rem);
     }
     75% {
         transform: translateY(-1rem);
@@ -84,13 +84,14 @@ p {
     & .loading-item {
         animation: loading-jump;
         animation-duration: 900ms;
+        animation-timing-function: ease-in-out;
         animation-fill-mode: both;
         animation-iteration-count: infinite;
         transform: translateY(0);
     }
     @for $i from 1 to 8 {
         .loading-item--#{$i} {
-          animation-delay:  #{$i/20}s;
+          animation-delay:  #{$i/10}s;
         }
     }
 }
@@ -100,9 +101,8 @@ header {
     padding-top: 20px;
     padding-bottom: 10px;
     & .header-arrow {
-        position: absolute;
-        left: 2em;
-        top: 40%;
+        float: left;
+        margin-left: 20px;
     }
     & img {
         width: 50%;
@@ -120,10 +120,12 @@ button {
         font-size: 1rem;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.30);
         border-radius: 30px;
+        transition: all 400ms;
+        transform: scale(1);
         &:hover {
             filter: brightness(1.1);
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.50);
-            transition: all 400ms;
+            transform: scale(1.1);
         }
     }
     &.like {
@@ -210,7 +212,7 @@ footer {
     padding: 20px;
     text-align: center;
     & p {
-        font-weight: 200;
+        font-weight: 300;
     }
     & button {
         margin: 40px auto;
@@ -353,7 +355,6 @@ footer {
         }
         & .menu-card {
             display: flex;
-            justify-content: space-between;
             padding: 10px;
             background-color: #FFFFFF;
             cursor: pointer;
@@ -363,6 +364,31 @@ footer {
             animation-timing-function: cubic-bezier(0.5, 1.5, 0.66, 0.8);
             animation-fill-mode: both;
             transform: scale(0);
+            & .check-icon {
+                margin: -10px;
+                width: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $tertiary;
+                color: #FFFFFF;
+                transition-duration: 500ms;
+                & i {
+                    transform: rotate(-360deg);
+                    transition-duration: 300ms;
+                    transition-delay: 100ms;
+                    font-size: 1.5rem;
+                }
+            }
+            &:hover {
+                & .check-icon {
+                    width: 4rem;
+                    & i {
+                        transform: rotate(0);
+                    }
+                }
+            }
+            
         }
         @for $i from 0 to 10 {
             .delay-#{$i} {
@@ -373,7 +399,7 @@ footer {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            flex: 1;
+            flex: 5;
         }
         & p {
             margin: 2px;
@@ -383,17 +409,10 @@ footer {
         }
         & .price {
             display: flex;
-            justify-content: flex-end;
             align-items: flex-end;
             font-weight: bold;
-        }
-        & .check-icon {
-            float: right;
-            width: 4rem;
-            margin: -10px;
-            background-color: $tertiary;
-            color: #FFFFFF;
-            transform: translateX(100%);
+            transition-duration: 400ms;  
+            flex: 1;
         }
     }
     & .button {
@@ -438,7 +457,8 @@ footer {
         }
         & li a {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            gap: 10px;
         }
     }
     .menu-text {
@@ -459,5 +479,14 @@ footer {
     footer ul {
         flex-direction: row;
         justify-content: space-around;
+        text-align: center;
+        & li {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            & a{
+                text-align: center;
+            }
+        }
     }
 }
