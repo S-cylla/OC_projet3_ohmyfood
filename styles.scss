@@ -146,7 +146,9 @@ button {
             left: 0;
             opacity: 0;
             transition: opacity 500ms;
-            color: $tertiary;
+            background: $button-color;
+            background-clip: text;
+            color: transparent;
         }
         &:hover {
             & .far {
@@ -392,6 +394,7 @@ footer {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                visibility: hidden;
                 background-color: $tertiary;
                 color: #FFFFFF;
                 transition-duration: 500ms;
@@ -405,6 +408,7 @@ footer {
             &:hover {
                 & .check-icon {
                     width: 4rem;
+                    visibility: visible;
                     & i {
                         transform: rotate(0);
                     }

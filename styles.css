@@ -199,7 +199,10 @@ button.like .fas {
   left: 0;
   opacity: 0;
   transition: opacity 500ms;
-  color: #99E2D0;
+  background: linear-gradient(354deg, #9356DC 0%, #FF79DA 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
 }
 button.like:hover .far {
   opacity: 0;
@@ -443,6 +446,7 @@ footer li a p:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
   background-color: #99E2D0;
   color: #FFFFFF;
   transition-duration: 500ms;
@@ -455,6 +459,7 @@ footer li a p:hover {
 }
 .restaurant-menu .container .menu-card:hover .check-icon {
   width: 4rem;
+  visibility: visible;
 }
 .restaurant-menu .container .menu-card:hover .check-icon i {
   transform: rotate(0);
