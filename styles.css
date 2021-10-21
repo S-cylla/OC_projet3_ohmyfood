@@ -386,6 +386,7 @@ footer li a p:hover {
 
 .banner img {
   width: 100%;
+  max-height: 400px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -519,7 +520,9 @@ footer li a p:hover {
 .restaurant-menu .container .price {
   display: flex;
   align-items: flex-end;
+  justify-content: flex-end;
   font-weight: bold;
+  margin-right: 30px;
   transition-duration: 400ms;
   flex: 1;
 }
@@ -578,6 +581,14 @@ footer li a p:hover {
   .menu-container {
     display: flex;
     gap: 20px;
+  }
+
+  .note-container {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .note-container .card {
+    width: 400px;
   }
 
   .menu-text {
