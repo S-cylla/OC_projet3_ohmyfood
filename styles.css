@@ -591,12 +591,13 @@ footer li a p:hover {
 }
 @media only screen and (min-width: 1200px) {
   .banner img {
-    max-height: 600px;
+    max-height: 800px;
   }
 
   .restaurant-menu {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-top: -200px;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 
   .menu-container {
